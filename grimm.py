@@ -10,29 +10,46 @@ def set_primes(s):
             raise Exception('no unique prime found')
     return s
 
-def con_comp(x):
-    clist = [i for i in range(4,x) if not isprime(i)]
+def consecutive_composites(r):
+    a, b = r
+    clist = [i for i in range(a,b) if not isprime(i)]
     ccsets = dict()
     setkey = 1
     singleset = {}
 
     for i in range(len(clist)-1):
-        a = clist[i]
-        b = clist[i+1]
-        if b - a == 1:
-            if singleset and a - list(singleset.keys())[-1] > 1:
+        n1 = clist[i]
+        n2 = clist[i+1]
+        if n2 - n1 == 1:
+            if singleset and n1 - list(singleset.keys())[-1] > 1:
                 ccsets[setkey] = set_primes(singleset)
                 setkey = setkey + 1
                 singleset = {}
-            singleset[a] = 0
-            singleset[b] = 0
+            singleset[n1] = 0
+            singleset[n2] = 0
     ccsets[setkey] = set_primes(singleset)
     return ccsets            
 
-def print_comps(n): 
-    for index, x  in con_comp(n).items():
-        print(index, ". ", x, "\n")
+def print_comps(s): 
+    for index, x  in s.items():
+        print(index, ".", x.keys())
     
+def menu():
+    print('\nGrimm\'s conjecture! what do you want to? ')
+    print('(f)ind consectuive composite sets')
+    print('(p)rint sets')
+    print('(q)uit')
 
-con_comp(100)
-# print_comps(100)
+def input_range():
+    
+    print('Enter a range [a,b]')
+
+    while True: 
+        try:
+            a = int(input('a = '))
+            b = int(input('b = '))
+            return((a,b))
+        except:
+            print("enter a valid integer!")
+
+   
