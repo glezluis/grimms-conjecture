@@ -15,7 +15,7 @@ def consecutive_composites(r):
     clist = [i for i in range(a,b) if not isprime(i)]
     ccsets = dict()
     setkey = 1
-    singleset = {}
+    singleset = dict()
 
     for i in range(len(clist)-1):
         n1 = clist[i]
@@ -32,7 +32,7 @@ def consecutive_composites(r):
 
 def print_comps(s): 
     for index, x  in s.items():
-        print(index, ".", x.keys())
+        print(index, ". ", x, "\n")
     
 def menu():
     print('\nGrimm\'s conjecture! what do you want to? ')
@@ -48,6 +48,9 @@ def input_range():
         try:
             a = int(input('a = '))
             b = int(input('b = '))
+            if a < 0 or b < 0:
+                print('only enter positive values!')
+                continue
             return((a,b))
         except:
             print("enter a valid integer!")

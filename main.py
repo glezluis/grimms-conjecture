@@ -1,6 +1,6 @@
 from grimm import *
+
 def main():
-    allsets = {}
     menuval = ''
 
     while menuval is not 'q':
@@ -9,7 +9,10 @@ def main():
         if menuval is 'f':
             a,b = input_range()
             allsets = consecutive_composites((a,b))
-            print('%d consecutive composite sets found between [%d, %d]' % (len(allsets),  a, b))
+            if len(allsets) == 0:
+                print('%d consecutive composite sets found between [%d, %d]' % (len(allsets),  a, b))
+            else:
+                print('no consecutive composite sets found')
         elif menuval is 'p':
             if not allsets: 
                 print_comps(consecutive_composites(input_range()))
