@@ -1,5 +1,5 @@
 # grimms-conjecture
-Grimm's conjecture states that for a set of consecutive composite numbers you can assign a unique prime to each element in that set. It still has yet to be proven mathematically but the algorithm in this python script will help analyze it numerically. 
+Grimm's conjecture states that for a set of consecutive composite numbers you can assign a unique prime divisor to each element in that set. It still has yet to be proven mathematically but the algorithm in this python script will help analyze it numerically. 
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
