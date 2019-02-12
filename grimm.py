@@ -1,6 +1,9 @@
 from sympy import isprime, primefactors
 
-def set_p#rimes(s):
+# Assign a unique prime divisor to each composite number in the set
+# input: a dictionary with key being a composite number and value set to zero
+# output: the same dictionary but whos values are now unique primes
+def set_primes(s):
     for composite in sorted(s, reverse = True):
         for prime in reversed(primefactors(composite)):
             if prime not in s.values():
